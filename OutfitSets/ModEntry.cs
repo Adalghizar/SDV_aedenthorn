@@ -98,6 +98,20 @@ namespace OutfitSets
                 min: 1,
                 max: 12
             );
+             configMenu.AddNumberOption(
+                mod: ModManifest,
+                name: () => "X offset",
+                getValue: () => Config.Xoffset,
+                setValue: value => Config.Xoffset = value
+                
+            );
+            configMenu.AddNumberOption(
+                mod: ModManifest,
+                name: () => "Y offset",
+                getValue: () => Config.Yoffset,
+                setValue: value => Config.Yoffset = value
+                
+            );
         }
 
     }

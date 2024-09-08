@@ -46,7 +46,7 @@ namespace OutfitSets
                 {
                     string leftRingData = Game1.player.leftRing.Value.ToXmlString();
                     Game1.player.modData[keyPrefix + "leftRing" + oldSet] = leftRingData;
-                    Game1.player.leftRing.Value.onUnequip(Game1.player, Game1.currentLocation);
+                    Game1.player.leftRing.Value.onUnequip(Game1.player);
                 }
                 else
                 {
@@ -56,7 +56,7 @@ namespace OutfitSets
                 {
                     string rightRingData = Game1.player.rightRing.Value.ToXmlString();
                     Game1.player.modData[keyPrefix + "rightRing" + oldSet] = rightRingData;
-                    Game1.player.rightRing.Value.onUnequip(Game1.player, Game1.currentLocation);
+                    Game1.player.rightRing.Value.onUnequip(Game1.player);
                 }
                 else
                 {
@@ -108,14 +108,14 @@ namespace OutfitSets
             if (Game1.player.modData.TryGetValue(keyPrefix + "leftRing" + which, out string leftRing))
             {
                 Game1.player.leftRing.Value = leftRing.FromXml<Ring>();
-                Game1.player.leftRing.Value.onEquip(Game1.player, Game1.currentLocation);
+                Game1.player.leftRing.Value.onEquip(Game1.player);
             }
             else
                 Game1.player.leftRing.Value = null;
             if (Game1.player.modData.TryGetValue(keyPrefix + "rightRing" + which, out string rightRing))
             {
                 Game1.player.rightRing.Value = rightRing.FromXml<Ring>();
-                Game1.player.rightRing.Value.onEquip(Game1.player, Game1.currentLocation);
+                Game1.player.rightRing.Value.onEquip(Game1.player);
             }
             else
                 Game1.player.rightRing.Value = null;
@@ -134,7 +134,7 @@ namespace OutfitSets
         {
             var strToDraw = (1 + i) + "";
             Vector2 strSize = Game1.tinyFont.MeasureString(strToDraw);
-            return new Point(__instance.xPositionOnScreen + 48 + (int)Math.Round((i + 0.5f) * 270 / Config.Sets), __instance.yPositionOnScreen + IClickableMenu.borderWidth + IClickableMenu.spaceToClearTopBorder + 4 + 384 - 12 + 64 + 20 - (int)strSize.Y / 2);
+            return new Point(__instance.xPositionOnScreen + Config.Xoffset + (int)Math.Round((i + 0.5f) * 270 / Config.Sets), __instance.yPositionOnScreen + IClickableMenu.borderWidth + IClickableMenu.spaceToClearTopBorder + Config.Yoffset - (int)strSize.Y / 2);
         }
     }
     public static class XmlTools

@@ -10,5 +10,7 @@ namespace OutfitSets
         public int Sets { get; set; } = 6;
         public Color CurrentColor { get; set; } = Color.Brown;
         public Color DefaultColor { get; set; } = Color.White;
+        public int Xoffset { get; set; } = 48;
+        public int Yoffset { get; set; } = 460;
     }
 }
